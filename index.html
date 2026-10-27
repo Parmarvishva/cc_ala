@@ -4,112 +4,531 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Designing - ALA Assignments</title>
+<title>Cloud Computing | ALA Dashboard</title>
 
 <style>
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background: #f8f8f8;
-    color: #292929;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #10204a;
+    background: #eaf5ff;
 }
 
-.container {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 25px 15px;
-    text-align: center;
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 24px 3% 20px;
+    background:
+        radial-gradient(ellipse at 85% 15%, #50c8ff 0%, transparent 32%),
+        radial-gradient(ellipse at 70% 85%, #087bff 0%, transparent 40%),
+        linear-gradient(120deg, #061746, #063c91 60%, #078ee8);
+    color: white;
+}
+
+.hero::before {
+    content: "☁";
+    position: absolute;
+    right: 6%;
+    top: 30px;
+    font-size: clamp(180px, 28vw, 390px);
+    color: rgba(255,255,255,.12);
+    line-height: 1;
+}
+
+.university {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.university img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border-radius: 12px;
 }
 
-.logo {
+.university h2 {
+    font-size: clamp(20px, 3vw, 36px);
+    line-height: 1.2;
+}
+
+.university p {
+    font-size: 17px;
+    opacity: .9;
+    margin-top: 5px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 900;
+    line-height: .98;
+    letter-spacing: -2px;
+    margin: 18px 0;
+}
+
+.hero h1 span {
     display: block;
-    width: 100%;
-    max-width: 330px;
-    height: auto;
-    margin: 0 auto 20px;
+    background: linear-gradient(90deg, white, #45e0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.details p {
-    font-size: 18px;
-    line-height: 1.5;
-    margin: 16px 0;
+.subtitle {
+    letter-spacing: 4px;
+    font-size: 14px;
+    margin: 18px 0;
+}
+
+.cloud-art {
+    position: relative;
+    z-index: 1;
+    flex: 0 1 390px;
+    min-width: 190px;
+    text-align: center;
+    padding: 30px 10px;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 35px;
+    background: linear-gradient(145deg,
+        rgba(255,255,255,.2),
+        rgba(0,90,220,.16));
+    box-shadow: inset 0 0 40px rgba(255,255,255,.1);
+}
+
+.cloud-art .cloud {
+    font-size: clamp(90px, 14vw, 160px);
+    line-height: 1.1;
+    filter: drop-shadow(0 0 20px #35c9ff);
+}
+
+.cloud-art .tech-icons {
+    font-size: 30px;
+    letter-spacing: 12px;
+    margin-top: 14px;
+}
+
+.student-info {
+    position: relative;
+    z-index: 1;
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 760px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 18px;
+    background: rgba(4, 22, 76, .65);
+    backdrop-filter: blur(12px);
+    padding: 12px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    min-width: 0;
+}
+
+.info-icon {
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #00aaff, #3157ff);
+    font-size: 21px;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.info-item span {
+    font-size: 14px;
     overflow-wrap: anywhere;
 }
 
-.details strong {
-    font-weight: bold;
+main {
+    padding: 12px 2.7% 40px;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
+.ala-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 22px;
 }
 
-.buttons a {
-    display: inline-block;
-    min-width: 85px;
-    padding: 12px 14px;
-    background: #087ff5;
+.ala-card {
+    --accent: #087cff;
+    --soft: #e8f4ff;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid white;
+    border-radius: 23px;
+    background: linear-gradient(160deg, white, var(--soft));
+    box-shadow: 0 8px 20px rgba(26, 84, 160, .14);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.ala-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 28px rgba(26, 84, 160, .22);
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px 14px 4px;
+}
+
+.card-icon {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
     color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 18px;
-    transition: background 0.2s;
+    font-size: 32px;
+    background: linear-gradient(135deg, var(--accent), var(--accent));
+    box-shadow: 0 5px 14px color-mix(in srgb, var(--accent), transparent 65%);
 }
 
-.buttons a:hover {
-    background: #075fc0;
+.card-heading h2 {
+    color: var(--accent);
+    font-size: clamp(19px, 1.7vw, 27px);
+}
+
+.card-heading p {
+    color: var(--accent);
+    font-size: 14px;
+    line-height: 1.35;
+    margin-top: 4px;
+}
+
+.illustration {
+    display: grid;
+    place-items: center;
+    flex: 1;
+    min-height: 125px;
+    margin: 4px 8px;
+    border-radius: 16px;
+    background:
+        radial-gradient(ellipse at 50% 85%, var(--soft), transparent 70%);
+}
+
+.illustration span {
+    font-size: clamp(65px, 7vw, 100px);
+    filter: drop-shadow(0 8px 10px rgba(16, 55, 125, .13));
+}
+
+.card-description {
+    padding: 12px 10px;
+    margin: 0 8px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.75);
+    color: #13234c;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: var(--accent);
+    border-radius: 13px;
+    padding: 13px 5px;
+    margin: 9px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    transition: filter .2s;
+}
+
+.view-btn:hover {
+    filter: brightness(.9);
+}
+
+.blue {
+    --accent: #087cff;
+    --soft: #e4f3ff;
+}
+
+.purple {
+    --accent: #7135f6;
+    --soft: #f0e9ff;
+}
+
+.pink {
+    --accent: #f71962;
+    --soft: #fff0f5;
+}
+
+.green {
+    --accent: #05b982;
+    --soft: #e2fff4;
+}
+
+.orange {
+    --accent: #ff8000;
+    --soft: #fff4e5;
 }
 
 footer {
-    margin-top: 24px;
-    color: #777;
+    padding: 18px;
+    text-align: center;
+    color: #61728d;
     font-size: 13px;
 }
 
+@media (max-width: 1050px) {
+    .ala-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .hero {
+        padding: 20px 16px;
+    }
+
+    .university img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .university p {
+        font-size: 13px;
+    }
+
+    .hero-content {
+        display: block;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .cloud-art {
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .cloud-art .cloud {
+        font-size: 85px;
+    }
+
+    .student-info {
+        grid-template-columns: 1fr;
+    }
+
+    .ala-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .card-top {
+        display: block;
+        padding: 12px 10px 4px;
+        text-align: center;
+    }
+
+    .card-icon {
+        margin: 0 auto 9px;
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    .card-description {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .ala-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<header class="hero">
 
-    <!-- GMIU Logo -->
-  <img src="gmiu.jpg" alt="GMIU Logo" class="logo">
-
-    <!-- Student Details -->
-    <div class="details">
-        <p><strong>Subject Name:</strong> Cloud Computing</p>
-        <p><strong>Subject Code:</strong> BETCE17336</p>
-        <p><strong>Student Name:</strong> parmar vishva.</p>
-        <p><strong>Enrollment No.:</strong> 240905091015</p>
+    <div class="university">
+        <img src="gmiu.jpg" alt="Gyanmanjari Innovative University Logo">
+        <div>
+            <h2>Gyanmanjari</h2>
+            <p>🎓 Innovative University</p>
+        </div>
     </div>
 
-    <!-- Five ALA Buttons -->
-    <div class="buttons">
-        <a href="ALA_1.pdf" target="_blank">ALA_1</a>
-        <a href="V_CC_ALA_2.pdf" target="_blank">ALA_2</a>
-        <a href="V_CC_ALA_3.pdf" target="_blank">ALA_3</a>
-        <a href="V_CC_ALA_4.pdf" target="_blank">ALA_4</a>
-        <a href="V_CC_ALA_5.pdf" target="_blank">ALA_5</a>
+    <div class="hero-content">
+        <div>
+            <h1>Cloud <span>Computing</span></h1>
+            <p class="subtitle">ASSIGNMENT LEARNING ACTIVITIES</p>
+        </div>
+
+        <div class="cloud-art" aria-label="Cloud computing illustration">
+            <div class="cloud">☁️</div>
+            <div class="tech-icons">🌐 💾 ⚙️</div>
+        </div>
     </div>
 
-    <footer>
-        Gyanmanjari Innovative University
-    </footer>
+    <div class="student-info">
+        <div class="info-item">
+            <div class="info-icon">📖</div>
+            <div>
+                <strong>Subject Name:</strong>
+                <span>Cloud Computing</span>
+            </div>
+        </div>
 
-</div>
+        <div class="info-item">
+            <div class="info-icon">👤</div>
+            <div>
+                <strong>Student Name:</strong>
+                <span>parmar vishva.</span>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">💻</div>
+            <div>
+                <strong>Subject Code:</strong>
+                <span>BETCE17336</span>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">📄</div>
+            <div>
+                <strong>Enrollment No.:</strong>
+                <span>240905091015</span>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<main>
+    <section class="ala-grid">
+
+        <article class="ala-card blue">
+            <div class="card-top">
+                <div class="card-icon">☁</div>
+                <div class="card-heading">
+                    <h2>ALA:1</h2>
+                    <p>Cloud Service Deployment</p>
+                </div>
+            </div>
+            <div class="illustration"><span>🌐</span></div>
+            <div class="card-description">
+                Deploy and configure cloud services using a cloud platform.
+            </div>
+            <a class="view-btn" href="V_CC_ALA_1.pdf" target="_blank">View ALA_1 →</a>
+        </article>
+
+        <article class="ala-card purple">
+            <div class="card-top">
+                <div class="card-icon">▣</div>
+                <div class="card-heading">
+                    <h2>ALA:2</h2>
+                    <p>Virtualization Implementation</p>
+                </div>
+            </div>
+            <div class="illustration"><span>🖥️</span></div>
+            <div class="card-description">
+                Implement and manage virtualization using hypervisors and virtual machines.
+            </div>
+            <a class="view-btn" href="V_CC_ALA_2.pdf" target="_blank">View ALA_2 →</a>
+        </article>
+
+        <article class="ala-card pink">
+            <div class="card-top">
+                <div class="card-icon">🛡</div>
+                <div class="card-heading">
+                    <h2>ALA:3</h2>
+                    <p>Cloud Security Analysis</p>
+                </div>
+            </div>
+            <div class="illustration"><span>🔐</span></div>
+            <div class="card-description">
+                Analyze cloud security threats, vulnerabilities and security controls.
+            </div>
+            <a class="view-btn" href="V_CC_ALA_3.pdf" target="_blank">View ALA_3 →</a>
+        </article>
+
+        <article class="ala-card green">
+            <div class="card-top">
+                <div class="card-icon">▤</div>
+                <div class="card-heading">
+                    <h2>ALA:4</h2>
+                    <p>Cloud Risk &amp; SLA Evaluation</p>
+                </div>
+            </div>
+            <div class="illustration"><span>📋</span></div>
+            <div class="card-description">
+                Evaluate risks in cloud computing and analyze Service Level Agreements (SLA).
+            </div>
+            <a class="view-btn" href="V_CC_ALA_4.pdf" target="_blank">View ALA_4 →</a>
+        </article>
+
+        <article class="ala-card orange">
+            <div class="card-top">
+                <div class="card-icon">▥</div>
+                <div class="card-heading">
+                    <h2>ALA:5</h2>
+                    <p>Cloud Performance Optimization</p>
+                </div>
+            </div>
+            <div class="illustration"><span>📊</span></div>
+            <div class="card-description">
+                Analyze and optimize cloud performance and implement auto-scaling strategies.
+            </div>
+            <a class="view-btn" href="V_CC_ALA_5.pdf" target="_blank">View ALA_5 →</a>
+        </article>
+
+    </section>
+</main>
+
+<footer>
+    © 2026 Vishva Parmar | Cloud Computing — Assignment Learning Activities
+</footer>
 
 </body>
 </html>
