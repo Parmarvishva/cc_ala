@@ -3,63 +3,115 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vishva Parmar | Assignments</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Designing - ALA Assignments</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7fc;color:#172554}
-header{background:white;padding:22px 8%;border-bottom:1px solid #e2e8f0}
-header h2{margin:0;color:#2563eb}
-.hero{padding:55px 8%;background:linear-gradient(120deg,#dbeafe,#fff)}
-.hero h1{font-size:clamp(30px,5vw,48px);margin:0 0 12px}
-.hero p{color:#64748b;line-height:1.7}
-main{max-width:1100px;margin:35px auto;padding:0 20px}
-h2{margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.card{background:white;padding:24px;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 5px 18px #0f172a0b}
-.badge{color:#dc2626;background:#fee2e2;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:bold}
-.card h3{margin-top:24px}
-.card p{color:#64748b;line-height:1.6}
-.btn{display:inline-block;margin-top:12px;padding:12px 16px;background:#2563eb;color:white;text-decoration:none;border-radius:9px;font-weight:bold}
-.btn:hover{background:#1d4ed8}
-footer{text-align:center;padding:25px;color:#64748b;font-size:13px}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    color: #292929;
+}
+
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px 15px;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo {
+    display: block;
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+    margin: 0 auto 20px;
+}
+
+.details p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 16px 0;
+    overflow-wrap: anywhere;
+}
+
+.details strong {
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+.buttons a {
+    display: inline-block;
+    min-width: 85px;
+    padding: 12px 14px;
+    background: #087ff5;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.2s;
+}
+
+.buttons a:hover {
+    background: #075fc0;
+}
+
+footer {
+    margin-top: 24px;
+    color: #777;
+    font-size: 13px;
+}
+
 </style>
 </head>
+
 <body>
-<header><h2>VP. Vishva Parmar</h2></header>
-<section class="hero">
-<h1>My Assignments & Reports</h1>
-<p>Welcome to my academic workspace. Access my assignments and practical reports below.</p>
-</section>
-<main>
-<h2>My Assignments</h2>
-<div class="grid">
-<div class="card">
-<span class="badge">PDF DOCUMENT</span>
-<h3>ALA 2</h3>
-<p>IoT Security Threat Modeling & Risk Mitigation.</p>
-<a class="btn" href="V_CC_ALA_2.pdf" target="_blank">View PDF ↗</a>
+
+<div class="container">
+
+    <!-- GMIU Logo -->
+    <img src="gmiu-logo.png"
+         alt="Gyanmanjari Innovative University Logo"
+         class="logo">
+
+    <!-- Student Details -->
+    <div class="details">
+        <p><strong>Subject Name:</strong> Web Designing</p>
+        <p><strong>Subject Code:</strong> BETCE13304</p>
+        <p><strong>Student Name:</strong> parmar vishva.</p>
+        <p><strong>Enrollment No.:</strong> 240905091015</p>
+    </div>
+
+    <!-- Five ALA Buttons -->
+    <div class="buttons">
+        <a href="ALA_1.pdf" target="_blank">ALA_1</a>
+        <a href="V_CC_ALA_2.pdf" target="_blank">ALA_2</a>
+        <a href="V_CC_ALA_3.pdf" target="_blank">ALA_3</a>
+        <a href="V_CC_ALA_4.pdf" target="_blank">ALA_4</a>
+        <a href="V_CC_ALA_5.pdf" target="_blank">ALA_5</a>
+    </div>
+
+    <footer>
+        Gyanmanjari Innovative University
+    </footer>
+
 </div>
-<div class="card">
-<span class="badge">PDF DOCUMENT</span>
-<h3>ALA 3</h3>
-<p>IoT Assignment 3 report.</p>
-<a class="btn" href="V_CC_ALA_3.pdf" target="_blank">View PDF ↗</a>
-</div>
-<div class="card">
-<span class="badge">PDF DOCUMENT</span>
-<h3>ALA 4</h3>
-<p>IoT Assignment 4 report.</p>
-<a class="btn" href="V_CC_ALA_4.pdf" target="_blank">View PDF ↗</a>
-</div>
-<div class="card">
-<span class="badge">PDF DOCUMENT</span>
-<h3>ALA 5</h3>
-<p>IoT Assignment 5 report.</p>
-<a class="btn" href="V_CC_ALA_5.pdf" target="_blank">View PDF ↗</a>
-</div>
-</div>
-</main>
-<footer>© 2026 Vishva Parmar · Hosted on GitHub Pages</footer>
+
 </body>
 </html>
